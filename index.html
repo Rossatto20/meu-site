@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Inicial | Enzo Rossatto</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Olá!, eu sou <span class="highlight">Enzo Rossatto</span></h1>
+            <p class="subtitle">Desenvolvedor Júnior em Formação</p>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-user"></i> Sobre</a></li>
+                    <li><a href="projects.html"><i class="fas fa-code"></i> Projetos</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="intro-section">
+            <h2><i class="fas fa-star"></i> Sobre Mim </h2>
+            <p>Estou começando minha jornada no desenvolvimento web e estou animado para aprender e crescer nesta área. Atualmente estou estudando HTML, CSS e JavaScript.</p>
+        </section>
+
+        <img src="images/sua-foto.png" alt="Minha foto" width="200" class="profile-img">
+        
+        <section class="skills-section">
+            <h2><i class="fas fa-laptop-code"></i> Habilidades em Desenvolvimento</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class="fab fa-html5"></i>
+                    <p>HTML Básico</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-css3-alt"></i>
+                    <p>CSS Básico</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-js"></i>
+                    <p>JavaScript Iniciante</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-git-alt"></i>
+                    <p>Git Básico</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="learning-section">
+            <h2><i class="fas fa-book"></i> Atualmente Aprendendo</h2>
+            <ul class="learning-list">
+                <li>Como criar layouts responsivos</li>
+                <li>Fundamentos de JavaScript</li>
+                <li>Controle de versão com Git/GitHub</li>
+                <li>Boas práticas de codificação</li>
+            </ul>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; <span id="year"></span> Enzo Rossatto. Todos os direitos reservados.</p>
+            <div class="social-links">
+                <a href="https://github.com/seuuser" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/seuuser" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:seu@email.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Atualizar ano no footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Observer para animações
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+// Efeito de digitação no título
+const titulo = document.querySelector('header h1');
+const textoOriginal = titulo.textContent;
+let i = 0;
+
+function digitar() {
+    if (i < textoOriginal.length) {
+        titulo.textContent = textoOriginal.substring(0, i + 1);
+        i++;
+        setTimeout(digitar, 100); // Velocidade da digitação
+    }
+}
+
+// Mudar cor do menu ao passar o mouse
+const linksMenu = document.querySelectorAll('nav a');
+
+linksMenu.forEach(link => {
+    link.addEventListener('mouseover', () => {
+        link.style.color = '#f1c40f'; // Amarelo
+    });
+    
+    link.addEventListener('mouseout', () => {
+        link.style.color = 'white';
+    });
+});
+
+// Mostrar ano atual no footer
+document.querySelector('footer p').innerHTML += new Date().getFullYear();
+
+// Animação suave ao rolar a página
+document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
